@@ -27,6 +27,8 @@ import re
 import os
 import argparse
 import nltk
+
+nltk.data.path.append('/data/oceanus_share/boruipeng/project/github/RULER/scripts')
 try:
     nltk.data.find('tokenizers/punkt')
 except LookupError:

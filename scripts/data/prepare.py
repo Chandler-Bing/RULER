@@ -42,6 +42,8 @@ import yaml
 from pathlib import Path
 from template import Templates
 import nltk
+
+nltk.data.path.append('/data/oceanus_share/boruipeng/project/github/RULER/scripts')
 try:
     nltk.data.find('tokenizers/punkt')
 except LookupError:
