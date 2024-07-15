@@ -33,7 +33,7 @@ h.escape_all = True
 h.reference_links = False
 h.mark_code = False
 
-with open('PaulGrahamEssays_URLs.txt') as f:
+with open('PaulGrahamEssays_URLs.txt',encoding='utf-8') as f:
     urls = [line.strip() for line in f]
 
 for url in tqdm(urls):
@@ -46,7 +46,7 @@ for url in tqdm(urls):
                 specific_tag = soup.find('font')
                 parsed = h.handle(str(specific_tag))
                 
-                with open(os.path.join(temp_folder_html, filename), 'w') as file:
+                with open(os.path.join(temp_folder_html, filename), 'w',encoding='utf-8') as file:
                     file.write(parsed)
         
         except Exception as e:
@@ -58,7 +58,7 @@ for url in tqdm(urls):
             with urllib.request.urlopen(url) as website:
                 content = website.read().decode('utf-8')
             
-            with open(os.path.join(temp_folder_repo, filename), 'w') as file:
+            with open(os.path.join(temp_folder_repo, filename), 'w',encoding='utf-8') as file:
                 file.write(content)
                     
         except Exception as e:
@@ -71,10 +71,10 @@ print(f'Download {len(files_html)} essays from `http://www.paulgraham.com/`')
 
 text = ""
 for file in files_repo + files_html:
-    with open(file, 'r') as f:
+    with open(file, 'r',encoding='utf-8') as f:
         text += f.read()
         
-with open('PaulGrahamEssays.json', 'w') as f:
+with open('PaulGrahamEssays.json', 'w',encoding='utf-8') as f:
     json.dump({"text": text}, f)
 
 

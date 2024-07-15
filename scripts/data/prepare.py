@@ -91,7 +91,9 @@ def main():
 
     # Add answer prefix for all models
     answer_prefix = config['answer_prefix'] if 'answer_prefix' in config else ''
-    config['template'] = model_template.format(task_template=task_template) + answer_prefix
+    task_template = task_template + '\n' + answer_prefix
+    config['template'] = model_template.format(task_template=task_template)
+    #config['template'] = model_template.format(task_template=task_template) + answer_prefix
 
     # Split task into multiple chunks 
     chunks = [(args.num_samples // args.chunk_amount) + (1 if i < args.num_samples % args.chunk_amount else 0) for i in range(args.chunk_amount)]
