@@ -24,8 +24,10 @@ TASK_NAME: {
 TASKS = {
     'niah': {
         'tokens_to_generate': 128,
-        'template': """Some special magic {type_needle_v} are hidden within the following text. Make sure to memorize it. I will quiz you about the {type_needle_v} afterwards.\n{context}\nWhat are all the special magic {type_needle_v} for {query} mentioned in the provided text?""",
-        'answer_prefix': """ The special magic {type_needle_v} for {query} mentioned in the provided text are"""
+        # 'template': """Some special magic {type_needle_v} are hidden within the following text. Make sure to memorize it. I will quiz you about the {type_needle_v} afterwards.\n{context}\nWhat are all the special magic {type_needle_v} for {query} mentioned in the provided text?""",
+        # 'answer_prefix': """ The special magic {type_needle_v} for {query} mentioned in the provided text are"""
+        'template': """一些特定{type_needle_v}隐藏在下面的文本中，请确保记住它，稍后我会提问关于{type_needle_v}的问题。\n{context}\n在给定的文本中针对{query}的所有特定{type_needle_v}有哪些？""",
+        'answer_prefix': """在给定的文本中针对{query}的所有特定{type_needle_v}为"""
     },
     
     'variable_tracking': {
